@@ -2,22 +2,43 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public class Boss
+{
+    private int mp = 53;
+
+    
+
+    
+    public void Magic()
+    {
+        for (int i = 1; i < 12; i++)
+        {
+            int MP = mp - 5 * i;
+
+            if (MP < 3)
+            {
+                Debug.Log("MPが足りないため、魔法が使えない。");
+            }
+
+            else
+            {
+                Debug.Log("魔法攻撃をした。残りMPは" + MP);
+            }
+        }
+        
+    }
+
+}
+
+
 public class Test : MonoBehaviour
 {
 
     void Start()
     {
-        int[] points = { 5, 10, 15, 20, 25 };
+        Boss boss = new Boss();
 
-        for (int i = 0; i < 5; i++)
-        {
-            Debug.Log(points[i]);
-        }
-
-        for (int i = 4; i >= 0; i--)
-        {
-            Debug.Log(points[i]);
-        }
+        boss.Magic();
     }
 
     // Update is called once per frame
